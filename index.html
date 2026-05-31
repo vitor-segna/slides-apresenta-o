@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação: IA & Segurança - Facchini</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Chart.js para gráficos nos slides -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Main Presentation Area -->
+        <main class="presentation-area">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <!-- Header Global com a Logo Facchini -->
+            <header class="presentation-header"
+                style="position: absolute; top: 20px; left: 80px; right: 80px; display: flex; justify-content: space-between; align-items: center; z-index: 50; pointer-events: none;">
+                <div class="header-logo" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="assets/logo_facchini.png" alt="Facchini Logo"
+                        style="height: 28px; width: auto; object-fit: contain;">
+                </div>
+                <div class="header-project-name"
+                    style="font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase;">
+                    Monitoramento de EPI - YOLOv8
+                </div>
+            </header>
+
+            <!-- Slides Wrapper -->
+            <div class="slides-container" id="slidesContainer">
+
+                <!-- Slide 1: Introdução -->
+                <section class="slide active" id="slide-1" data-slide="1">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="logo-container"
+                                style="margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+                                <img src="assets/logo_facchini.png" alt="Facchini Logo"
+                                    style="height: 35px; width: auto; object-fit: contain;">
+
+                            </div>
+
+                            <h1 class="main-title">Segurança do Trabalho Inteligente
+                                <div class="badge red-badge" style="margin-bottom: 0; font-size: 20px;">PROTÓTIPO</div>
+                            </h1>
+                            <p class="subtitle">Monitoramento automatizado de EPI com Visão Computacional</p>
+
+                            <div class="divider"></div>
+                        </div>
+                        <div class="slide-visual center-flex">
+                            <div class="mockup-wrapper">
+                                <div class="visual-card mockup-card">
+                                    <div class="mockup-header">
+                                        <span class="dot red"></span>
+                                        <span class="dot yellow"></span>
+                                        <span class="dot green"></span>
+                                        <span class="mockup-title">FACCHINI AI-CAMERA 01</span>
+                                    </div>
+                                    <div class="mockup-body">
+                                        <img src="assets/ai_detection_mockup.png" alt="Simulação de Detecção de EPI" class="mockup-img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 2: Contextualização e Objetivo -->
+                <section class="slide" id="slide-2" data-slide="2">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="badge red-badge">CONTEXTUALIZAÇÃO</div>
+                            <h2 class="slide-title">Ambiente Seguro & Prevenção</h2>
+                            <p class="subtitle">O problema do uso de EPIs e o propósito do protótipo</p>
+
+                            <div class="divider"></div>
+
+                            <ul class="bullet-list">
+                                <li>
+                                    <strong class="highlight-text">O Desafio dos Acidentes:</strong>
+                                    <span>Incidentes visuais ou oculares no chão de fábrica representam riscos graves à
+                                        saúde física e geram paradas operacionais.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Objetivo Principal:</strong>
+                                    <span>Garantir um ambiente de trabalho 100% seguro através do monitoramento
+                                        automatizado, auxiliando a equipe de segurança a zerar desvios.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Natureza de Protótipo:</strong>
+                                    <span>Desenvolvido como uma prova de conceito (PoC) para validar a viabilidade de
+                                        aplicar visão computacional na detecção em tempo real na Facchini.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="slide-visual center-flex">
+                            <div class="closing-cards"
+                                style="grid-template-columns: 1fr; gap: 15px; width: 100%; max-width: 440px; margin: 0;">
+                                <div class="closing-card"
+                                    style="padding: 20px; border-left: 4px solid var(--primary-red); background-color: var(--bg-card); display: flex; flex-direction: column; gap: 6px;">
+                                    <h3
+                                        style="margin: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                                        <span>🛡️</span> Foco: Reduzir Riscos
+                                    </h3>
+                                    <p
+                                        style="font-size: 0.85rem; line-height: 1.4; color: var(--text-secondary); margin: 0;">
+                                        A detecção precoce de colaboradores sem óculos de proteção atua antes que
+                                        acidentes ocorram nas áreas de risco, como solda e montagem.</p>
+                                </div>
+                                <div class="closing-card"
+                                    style="padding: 20px; border-left: 4px solid var(--primary-red); background-color: var(--bg-card); display: flex; flex-direction: column; gap: 6px;">
+                                    <h3
+                                        style="margin: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                                        <span>🔬</span> Prova de Conceito (PoC)
+                                    </h3>
+                                    <p
+                                        style="font-size: 0.85rem; line-height: 1.4; color: var(--text-secondary); margin: 0;">
+                                        Validação técnica focada em rodar o algoritmo YOLOv8 nas câmeras locais da
+                                        fábrica com baixíssimo tempo de resposta.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 3: A Força-Tarefa (Base de Dados) -->
+                <section class="slide" id="slide-3" data-slide="3">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="badge red-badge">DESAFIOS 1 & 2</div>
+                            <h2 class="slide-title">Força-Tarefa de Dados</h2>
+                            <p class="subtitle">Superação contra o relógio nas primeiras etapas</p>
+
+                            <div class="divider"></div>
+
+                            <ul class="bullet-list">
+                                <li>
+                                    <strong class="highlight-text">Adaptação e Atraso Inicial:</strong>
+                                    <span>Entrada tardia no projeto, computadores sem ferramentas prontas (MySQL
+                                        Workbench) e câmeras locais inoperantes.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Agilidade do Time:</strong>
+                                    <span>Abertura rápida de chamados, uso de webcams provisórias e início imediato das
+                                        gravações.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Trabalho em Grupo Roboflow Pro:</strong>
+                                    <span>Uso da janela de teste Pro gratuito para acelerar a catalogação de
+                                        imagens.</span>
+                                </li>
+                            </ul>
+
+                            <div class="metric-container single-metric">
+                                <div class="metric-box red-glow">
+                                    <span class="metric-number">+50.000</span>
+                                    <span class="metric-label">Fotos no Dataset do Roboflow</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-visual center-flex">
+                            <div class="timeline-visual">
+                                <div class="timeline-point current">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <h4>Integração</h4>
+                                        <p>Ajuste de computadores & webcams</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-point current">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <h4>Roboflow Pro</h4>
+                                        <p>Aproveitamento da janela gratuita</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-point current">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <h4>Força-Tarefa</h4>
+                                        <p>Catalogação manual em tempo recorde</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-point current">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <h4>Banco Robusto</h4>
+                                        <p>+50.000 imagens variadas e sem falhas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 4: Conceitos e Labelização de Dados -->
+                <section class="slide" id="slide-4" data-slide="4">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="badge red-badge">PREPARAÇÃO DA IA</div>
+                            <h2 class="slide-title">Processo de Labelização</h2>
+                            <p class="subtitle">Ensinando a IA a interpretar termos técnicos e objetos</p>
+
+                            <div class="divider"></div>
+
+                            <ul class="bullet-list">
+                                <li>
+                                    <strong class="highlight-text">Labelização (Rotulagem):</strong>
+                                    <span>Identificação e marcação manual dos objetos em cada imagem. Dizemos à IA o que
+                                        ela deve procurar.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Bounding Boxes (Caixas delimitadoras):</strong>
+                                    <span>As caixas desenhadas sobre o usuário para delimitar o local exato do rosto e
+                                        dos óculos de proteção.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Classes de Detecção:</strong>
+                                    <span>Dividimos o aprendizado em duas categorias claras: "COM ÓCULOS" e "SEM ÓCULOS
+                                        DE PROTEÇÃO".</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Data Augmentation (Aumento de Dados):</strong>
+                                    <span>Criação de variações das imagens (rotação, brilho, zoom) para que a IA aprenda
+                                        sob diferentes iluminações e ângulos.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="slide-visual center-flex">
+                            <div class="closing-cards"
+                                style="grid-template-columns: 1fr; gap: 15px; width: 100%; max-width: 440px; margin: 0;">
+                                <div class="closing-card"
+                                    style="padding: 16px; border-left: 4px solid var(--primary-red); background-color: var(--bg-card);">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <span style="font-size: 1.3rem;">🏷️</span>
+                                        <h3 style="margin: 0; font-size: 1.05rem;">Anotação Roboflow</h3>
+                                    </div>
+                                    <p style="font-size: 0.82rem; line-height: 1.4; color: var(--text-secondary);">Cada
+                                        imagem passou por validação humana rigorosa para posicionar as caixas sobre os
+                                        olhos de cada colaborador com precisão milimétrica.</p>
+                                </div>
+                                <div class="closing-card"
+                                    style="padding: 16px; border-left: 4px solid var(--primary-red); background-color: var(--bg-card);">
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                        <span style="font-size: 1.3rem;">🔄</span>
+                                        <h3 style="margin: 0; font-size: 1.05rem;">Data Augmentation na Prática</h3>
+                                    </div>
+                                    <p style="font-size: 0.82rem; line-height: 1.4; color: var(--text-secondary);">
+                                        Multiplicamos o poder do nosso dataset inserindo ruídos, variações de contraste
+                                        de solda e inclinação para evitar que o modelo falhe na fábrica real.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 5: Estratégia de Treinamento (Google Colab Pro) -->
+                <section class="slide" id="slide-5" data-slide="5">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="badge red-badge">DESAFIO 3</div>
+                            <h2 class="slide-title">Estratégia de Treinamento</h2>
+                            <p class="subtitle">Contornando gargalos físicos de processamento</p>
+
+                            <div class="divider"></div>
+
+                            <ul class="bullet-list">
+                                <li>
+                                    <strong class="highlight-text">Gargalo Local:</strong>
+                                    <span>Treinamento local lento e instável. Equipamentos não suportavam a robustez do
+                                        "cérebro" da IA.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text"> Workstation:</strong>
+                                    <span>Apesar de disponibilizada, a GPU antiga (AMD) forçava o processamento para a
+                                        CPU, travando o progresso.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Solução em Nuvem (Google Colab Pro):</strong>
+                                    <span>Investimento em servidores de alta performance. Processamento escalável e
+                                        velocidade extrema.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="slide-visual center-flex">
+                            <div class="performance-comparison">
+                                <h3>Hardware Local vs. Google Colab Pro</h3>
+                                <div class="chart-container">
+                                    <div class="chart-bar-group">
+                                        <div class="chart-label">Workstation (CPU)</div>
+                                        <div class="chart-bar-wrapper">
+                                            <div class="chart-bar local-bar" style="width: 15%"></div>
+                                        </div>
+                                        <div class="chart-value">Semanas (Lento / Travamentos)</div>
+                                    </div>
+                                    <div class="chart-bar-group">
+                                        <div class="chart-label">Google Colab Pro (GPU Cloud)</div>
+                                        <div class="chart-bar-wrapper">
+                                            <div class="chart-bar cloud-bar" style="width: 100%"></div>
+                                        </div>
+                                        <div class="chart-value font-red">Horas (Alta Performance)</div>
+                                    </div>
+                                </div>
+                                <div class="colab-benefit-badge">
+                                    <span>✔ Modelo Preciso</span>
+                                    <span>✔ Entrega no Prazo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 6: Métricas & Evolução -->
+                <section class="slide" id="slide-6" data-slide="6">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="badge red-badge">RESULTADOS</div>
+                            <h2 class="slide-title">Desempenho de Detecção</h2>
+                            <p class="subtitle">Resultados consolidados do melhor modelo treinado</p>
+
+                            <div class="divider"></div>
+
+                            <p class="description" style="margin-bottom: 20px;">
+                                Métricas obtidas no Google Colab Pro com o YOLOv8 ao fim do treinamento. Estes índices
+                                determinam o sucesso do protótipo no chão de fábrica.
+                            </p>
+
+                            <div class="metrics-three-grid">
+                                <div class="metric-box">
+                                    <span class="metric-number">0.3102</span>
+                                    <span class="metric-label">Melhor mAP50-95</span>
+                                </div>
+                                <div class="metric-box">
+                                    <span class="metric-number">0.7759</span>
+                                    <span class="metric-label">Precisão</span>
+                                </div>
+                                <div class="metric-box">
+                                    <span class="metric-number">0.7349</span>
+                                    <span class="metric-label">Recall</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-visual center-flex">
+                            <div class="chart-card-wrapper"
+                                style="background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 25px; box-shadow: var(--shadow-main); width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 15px;">
+                                <h3 style="font-size: 1.15rem; color: var(--text-primary); text-align: center;">Curva de
+                                    Evolução do Aprendizado</h3>
+                                <div style="height: 250px; position: relative;">
+                                    <canvas id="slide-metrics-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 7: Analogia do Futebol & Modo Técnico -->
+                <section class="slide" id="slide-7" data-slide="7">
+                    <div class="slide-content">
+                        <div class="slide-text" style="align-items: center; text-align: center; margin-bottom: 20px;">
+                            <div class="badge red-badge">DESMISTIFICANDO</div>
+                            <h2 class="slide-title">Entendendo as Métricas</h2>
+                            <p class="subtitle" id="slide6-subtitle">Explicando o comportamento do modelo de forma
+                                técnica e descomplicada</p>
+                            <div class="divider center-margin"></div>
+
+                            <!-- Botões de Alternar Modo -->
+                            <div class="toggle-mode-container"
+                                style="display: flex; gap: 10px; justify-content: center; margin-bottom: 10px; z-index: 10; position: relative;">
+                                <button class="action-btn active" id="btn-mode-tecnico"
+                                    onclick="switchSlide6Mode('tecnico')"
+                                    style="font-size: 0.85rem; padding: 8px 16px; background: var(--primary-red); border-color: var(--primary-red); color: white;">
+                                    <span>🔬 Modo Técnico</span>
+                                </button>
+                                <button class="action-btn" id="btn-mode-futebol" onclick="switchSlide6Mode('futebol')"
+                                    style="font-size: 0.85rem; padding: 8px 16px; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.08);">
+                                    <span>⚽ Modo Futebol</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="soccer-grid"
+                            style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 1100px; margin: 0 auto;">
+                            <!-- Card 1: Precisão -->
+                            <div class="soccer-card"
+                                style="background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px; box-shadow: var(--shadow-main); display: flex; gap: 12px; align-items: flex-start;">
+                                <div class="soccer-icon"
+                                    style="font-size: 1.8rem; background: rgba(227, 6, 19, 0.08); border-radius: 12px; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; color: var(--primary-red); flex-shrink: 0;">
+                                    🎯</div>
+                                <div>
+                                    <h4 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 6px;">
+                                        <span class="mode-title-tecnico">Precisão (Precision)</span>
+                                        <span class="mode-title-futebol" style="display: none;">Precisão
+                                            (Pontaria)</span>
+                                    </h4>
+                                    <p class="mode-desc-tecnico"
+                                        style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+                                        De todas as predições de uso de EPI feitas pelo modelo, quantas estavam
+                                        realmente corretas? Foca em eliminar os Falsos Positivos (falsos alertas).
+                                    </p>
+                                    <p class="mode-desc-futebol"
+                                        style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; display: none;">
+                                        De todos os chutes que o atacante dá em direção ao gol, quantos realmente
+                                        entram? Alta precisão significa que ele raramente chuta para fora.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: Recall -->
+                            <div class="soccer-card"
+                                style="background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px; box-shadow: var(--shadow-main); display: flex; gap: 12px; align-items: flex-start;">
+                                <div class="soccer-icon"
+                                    style="font-size: 1.8rem; background: rgba(227, 6, 19, 0.08); border-radius: 12px; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; color: var(--primary-red); flex-shrink: 0;">
+                                    🏃‍♂️</div>
+                                <div>
+                                    <h4 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 6px;">
+                                        <span class="mode-title-tecnico">Sensibilidade (Recall)</span>
+                                        <span class="mode-title-futebol" style="display: none;">Recall (Presença de
+                                            Área)</span>
+                                    </h4>
+                                    <p class="mode-desc-tecnico"
+                                        style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+                                        De todos os colaboradores sem óculos que realmente estavam presentes, quantos o
+                                        modelo detectou? Foca em eliminar os Falsos Negativos (deixar passar infrações).
+                                    </p>
+                                    <p class="mode-desc-futebol"
+                                        style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; display: none;">
+                                        De todos os cruzamentos na área (infrações), em quantos o atacante chega para
+                                        cabecear? Alto recall garante que nenhuma oportunidade seja perdida.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: Acurácia -->
+                            <div class="soccer-card"
+                                style="background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px; box-shadow: var(--shadow-main); display: flex; gap: 12px; align-items: flex-start;">
+                                <div class="soccer-icon"
+                                    style="font-size: 1.8rem; background: rgba(227, 6, 19, 0.08); border-radius: 12px; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; color: var(--primary-red); flex-shrink: 0;">
+                                    📊</div>
+                                <div>
+                                    <h4 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 6px;">
+                                        <span class="mode-title-tecnico">Acurácia (Accuracy)</span>
+                                        <span class="mode-title-futebol" style="display: none;">Acurácia
+                                            (Aproveitamento)</span>
+                                    </h4>
+                                    <p class="mode-desc-tecnico"
+                                        style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+                                        Taxa de acertos gerais do modelo sobre todas as predições. É a proporção entre a
+                                        soma das detecções corretas de EPI e a totalidade das predições realizadas.
+                                    </p>
+                                    <p class="mode-desc-futebol"
+                                        style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; display: none;">
+                                        É a eficiência geral do atleta no jogo: passes corretos, desarmes efetuados e
+                                        chutes certos sobre tudo o que tentou. Sua média total em campo.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Card 4: mAP50-95 -->
+                            <div class="soccer-card"
+                                style="background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px; box-shadow: var(--shadow-main); display: flex; gap: 12px; align-items: flex-start; grid-column: span 1;">
+                                <div class="soccer-icon"
+                                    style="font-size: 1.8rem; background: rgba(227, 6, 19, 0.08); border-radius: 12px; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; color: var(--primary-red); flex-shrink: 0;">
+                                    🏆</div>
+                                <div>
+                                    <h4 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 6px;">
+                                        <span class="mode-title-tecnico">mAP50-95</span>
+                                        <span class="mode-title-futebol" style="display: none;">mAP50-95 (Nota do
+                                            Craque)</span>
+                                    </h4>
+                                    <p class="mode-desc-tecnico"
+                                        style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+                                        Média de precisão calculada sob múltiplos limiares de sobreposição de caixas
+                                        (IoU) de 0.50 a 0.95. É o teste de estresse de qualidade mais rigoroso para IA.
+                                    </p>
+                                    <p class="mode-desc-futebol"
+                                        style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; display: none;">
+                                        A nota da partida dada ao jogador considerando todas as jogadas fáceis
+                                        (pênaltis) e difíceis (chutes de longe). O critério mais completo de qualidade.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Card 5: Curva de Perda -->
+                            <div class="soccer-card"
+                                style="background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px; box-shadow: var(--shadow-main); display: flex; gap: 12px; align-items: flex-start; grid-column: span 2;">
+                                <div class="soccer-icon"
+                                    style="font-size: 1.8rem; background: rgba(227, 6, 19, 0.08); border-radius: 12px; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; color: var(--primary-red); flex-shrink: 0;">
+                                    📈</div>
+                                <div>
+                                    <h4 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 6px;">
+                                        <span class="mode-title-tecnico">Curva de Aprendizado / Perda</span>
+                                        <span class="mode-title-futebol" style="display: none;">Curva de Aprendizado
+                                            (Temporada)</span>
+                                    </h4>
+                                    <p class="mode-desc-tecnico"
+                                        style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">
+                                        Gráfico do decaimento das funções de custo (Loss) nas épocas. Demonstra a
+                                        convergência estatística do otimizador e a estabilização das métricas de
+                                        generalização.
+                                    </p>
+                                    <p class="mode-desc-futebol"
+                                        style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; display: none;">
+                                        Pré-temporada do time: no começo há desentrosamento e muitos erros (perda alta).
+                                        Com treinos repetidos (épocas), o time entrosa e as falhas caem para próximo de
+                                        zero.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 8: O Sistema em Ação (Vídeos e Capturas) -->
+                <section class="slide" id="slide-8" data-slide="8">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="badge red-badge">DEMONSTRAÇÃO</div>
+                            <h2 class="slide-title">O Sistema em Ação</h2>
+                            <p class="subtitle">Vídeo e fotos do monitoramento em tempo real</p>
+
+                            <div class="divider"></div>
+
+                            <p class="description" style="margin-bottom: 20px;">
+                                Veja o protótipo operando e detectando automaticamente. O modelo desenha caixas de
+                                marcação vermelhas para ausência de EPI e verdes para o uso correto.
+                            </p>
+
+                            <ul class="bullet-list" style="margin-bottom: 20px;">
+                                <li>
+                                    <strong class="highlight-text">Detecção Instantânea:</strong>
+                                    <span>Menos de 30ms para identificar e categorizar cada colaborador.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Diferentes Iluminações:</strong>
+                                    <span>O modelo foi treinado para funcionar tanto sob a luz do dia quanto em
+                                        ambientes de fábrica menos iluminados.</span>
+                                </li>
+                            </ul>
+
+                            <!-- Botões de Alternar Mídia -->
+                            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                                <button class="action-btn active" id="btn-show-video" onclick="switchDemoMedia('video')"
+                                    style="font-size: 0.8rem; padding: 6px 12px; background: var(--primary-red); border-color: var(--primary-red);">
+                                    <span>🎥 Ver Vídeo</span>
+                                </button>
+                                <button class="action-btn" id="btn-show-photos" onclick="switchDemoMedia('photos')"
+                                    style="font-size: 0.8rem; padding: 6px 12px; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.08);">
+                                    <span>🖼️ Ver Fotos</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="slide-visual center-flex">
+                            <!-- Wrapper de Mídia Interativo -->
+                            <div class="visual-card mockup-card" style="width: 100%; max-width: 500px;">
+                                <div class="mockup-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="mockup-title" id="demo-media-title">MONITORAMENTO EM VÍDEO</span>
+                                </div>
+                                <div class="mockup-body"
+                                    style="background-color: #0b0f19; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; position: relative;">
+
+                                    <!-- Player de Vídeo -->
+                                    <div id="demo-video-wrapper" style="width: 100%; height: 100%; display: block;">
+                                        <video id="demo-video" controls loop autoplay muted
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                            <source src="assets/demo_oculos_yolo_raw_final_20260529_190523.mp4"
+                                                type="video/mp4">
+                                            Seu navegador não suporta vídeos.
+                                        </video>
+                                    </div>
+
+                                    <!-- Galeria de Fotos (Inicialmente Oculta) -->
+                                    <!-- Galeria de Fotos (Contêiner em Carrossel) -->
+                                    <div id="demo-photos-wrapper"
+                                        style="width: 100%; height: 100%; display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: #0b0f19;">
+                                        
+                                        <!-- Slides do Carrossel (Exatamente 10 Evidências) -->
+                                        <div class="carousel-track" style="width: 100%; height: 100%; position: relative;">
+                                            <!-- Slide 1 -->
+                                            <div class="demo-carousel-item active" style="width: 100%; height: 100%; display: block; position: relative;">
+                                                <img src="assets/evidencias/demo_sem_oculos_seg5.87_conf0.67_20260529_190523.jpg" onclick="zoomImage(this)" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" title="Clique para ampliar">
+                                                <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(227, 6, 19, 0.85); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-family: sans-serif; font-weight: 600; z-index: 10;">Sem Óculos (5s) • 67%</span>
+                                            </div>
+                                            
+                                            <!-- Slide 2 -->
+                                            <div class="demo-carousel-item" style="width: 100%; height: 100%; display: none; position: relative;">
+                                                <img src="assets/evidencias/demo_sem_oculos_seg18.37_conf0.66_20260529_190523.jpg" onclick="zoomImage(this)" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" title="Clique para ampliar">
+                                                <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(227, 6, 19, 0.85); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-family: sans-serif; font-weight: 600; z-index: 10;">Sem Óculos (18s) • 66%</span>
+                                            </div>
+                                            
+                                            <!-- Slide 3 -->
+                                            <div class="demo-carousel-item" style="width: 100%; height: 100%; display: none; position: relative;">
+                                                <img src="assets/evidencias/demo_sem_oculos_seg28.37_conf0.72_20260529_190523.jpg" onclick="zoomImage(this)" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" title="Clique para ampliar">
+                                                <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(227, 6, 19, 0.85); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-family: sans-serif; font-weight: 600; z-index: 10;">Sem Óculos (28s) • 72%</span>
+                                            </div>
+
+                                            <!-- Slide 4 -->
+                                            <div class="demo-carousel-item" style="width: 100%; height: 100%; display: none; position: relative;">
+                                                <img src="assets/evidencias/demo_sem_oculos_seg40.97_conf0.66_20260529_190523.jpg" onclick="zoomImage(this)" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" title="Clique para ampliar">
+                                                <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(227, 6, 19, 0.85); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-family: sans-serif; font-weight: 600; z-index: 10;">Sem Óculos (40s) • 66%</span>
+                                            </div>
+
+                                            <!-- Slide 5 -->
+                                            <div class="demo-carousel-item" style="width: 100%; height: 100%; display: none; position: relative;">
+                                                <img src="assets/evidencias/demo_sem_oculos_seg178.50_conf0.69_20260529_190523.jpg" onclick="zoomImage(this)" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" title="Clique para ampliar">
+                                                <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(227, 6, 19, 0.85); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-family: sans-serif; font-weight: 600; z-index: 10;">Sem Óculos (178s) • 69%</span>
+                                            </div>
+
+                                            <!-- Slide 6 -->
+                                            <div class="demo-carousel-item" style="width: 100%; height: 100%; display: none; position: relative;">
+                                                <img src="assets/evidencias/demo_sem_oculos_seg196.17_conf0.69_20260529_190523.jpg" onclick="zoomImage(this)" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" title="Clique para ampliar">
+                                                <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(227, 6, 19, 0.85); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-family: sans-serif; font-weight: 600; z-index: 10;">Sem Óculos (196s) • 69%</span>
+                                            </div>
+
+                                            <!-- Slide 7 -->
+                                            <div class="demo-carousel-item" style="width: 100%; height: 100%; display: none; position: relative;">
+                                                <img src="assets/evidencias/demo_sem_oculos_seg207.10_conf0.65_20260529_190523.jpg" onclick="zoomImage(this)" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" title="Clique para ampliar">
+                                                <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(227, 6, 19, 0.85); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-family: sans-serif; font-weight: 600; z-index: 10;">Sem Óculos (207s) • 65%</span>
+                                            </div>
+
+                                            <!-- Slide 8 -->
+                                            <div class="demo-carousel-item" style="width: 100%; height: 100%; display: none; position: relative;">
+                                                <img src="assets/evidencias/demo_sem_oculos_seg217.17_conf0.65_20260529_190523.jpg" onclick="zoomImage(this)" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" title="Clique para ampliar">
+                                                <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(227, 6, 19, 0.85); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-family: sans-serif; font-weight: 600; z-index: 10;">Sem Óculos (217s) • 65%</span>
+                                            </div>
+
+                                            <!-- Slide 9 -->
+                                            <div class="demo-carousel-item" style="width: 100%; height: 100%; display: none; position: relative;">
+                                                <img src="assets/evidencias/demo_sem_oculos_seg239.00_conf0.66_20260529_190523.jpg" onclick="zoomImage(this)" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" title="Clique para ampliar">
+                                                <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(227, 6, 19, 0.85); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-family: sans-serif; font-weight: 600; z-index: 10;">Sem Óculos (239s) • 66%</span>
+                                            </div>
+
+                                            <!-- Slide 10 -->
+                                            <div class="demo-carousel-item" style="width: 100%; height: 100%; display: none; position: relative;">
+                                                <img src="assets/evidencias/demo_sem_oculos_seg251.67_conf0.66_20260529_190523.jpg" onclick="zoomImage(this)" style="width: 100%; height: 100%; object-fit: cover; cursor: zoom-in;" title="Clique para ampliar">
+                                                <span style="position: absolute; bottom: 15px; left: 15px; background: rgba(227, 6, 19, 0.85); color: #fff; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; font-family: sans-serif; font-weight: 600; z-index: 10;">Sem Óculos (251s) • 66%</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Botões do Carrossel de Fotos (Setas) -->
+                                        <button onclick="navigateDemoPhotos(-1)" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 1.1rem; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 15; transition: 0.2s;" onmouseover="this.style.background='var(--primary-red)'" onmouseout="this.style.background='rgba(0,0,0,0.5)'">
+                                            &larr;
+                                        </button>
+                                        <button onclick="navigateDemoPhotos(1)" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15); color: #fff; font-size: 1.1rem; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 15; transition: 0.2s;" onmouseover="this.style.background='var(--primary-red)'" onmouseout="this.style.background='rgba(0,0,0,0.5)'">
+                                            &rarr;
+                                        </button>
+                                        
+                                        <!-- Contador / Indicador do Carrossel -->
+                                        <span id="demo-carousel-counter" style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-family: monospace; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; font-weight: 700; z-index: 15;">
+                                            1 / 10
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 9: Dashboard Analítico -->
+                <section class="slide" id="slide-9" data-slide="9">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="badge red-badge">GESTÃO INTELIGENTE</div>
+                            <h2 class="slide-title">Dashboard Analítico</h2>
+                            <p class="subtitle">Visualização gerencial e indicadores em tempo real</p>
+
+                            <div class="divider"></div>
+
+                            <ul class="bullet-list">
+                                <li>
+                                    <strong class="highlight-text">Métricas de Desempenho:</strong>
+                                    <span>Exibe o total de registros diários, semanais e mensais, além de tendências comparativas com períodos anteriores.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Análise por Setor:</strong>
+                                    <span>Gráficos interativos mostram quais setores apresentam o maior volume de registros e quais EPIs são os mais negligenciados.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Calendário de Ocorrências:</strong>
+                                    <span>Uma visualização em calendário permite identificar padrões temporais nos registros efetuados.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="slide-visual center-flex">
+                            <div class="visual-card mockup-card" style="width: 100%; max-width: 480px;">
+                                <div class="mockup-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="mockup-title">PAINEL DE INDICADORES</span>
+                                </div>
+                                <div class="mockup-body" style="padding: 20px; background: var(--bg-card);">
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                                        <div class="metric-box" style="padding: 15px;">
+                                            <span class="metric-number" style="font-size: 1.5rem;">1,240</span>
+                                            <span class="metric-label">Registros/Mês</span>
+                                        </div>
+                                        <div class="metric-box" style="padding: 15px;">
+                                            <span class="metric-number" style="font-size: 1.5rem; color: #10b981;">-12%</span>
+                                            <span class="metric-label">vs. Mês Anterior</span>
+                                        </div>
+                                    </div>
+                                    <div style="height: 150px; background: rgba(255,255,255,0.03); border-radius: 8px; display: flex; align-items: flex-end; justify-content: space-around; padding: 10px;">
+                                        <div style="width: 30px; height: 60%; background: var(--primary-red); border-radius: 4px 4px 0 0;"></div>
+                                        <div style="width: 30px; height: 85%; background: var(--primary-red); border-radius: 4px 4px 0 0;"></div>
+                                        <div style="width: 30px; height: 45%; background: var(--primary-red); border-radius: 4px 4px 0 0;"></div>
+                                        <div style="width: 30px; height: 70%; background: var(--primary-red); border-radius: 4px 4px 0 0;"></div>
+                                        <div style="width: 30px; height: 95%; background: var(--primary-red); border-radius: 4px 4px 0 0;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 10: Gestão de Registros de Segurança -->
+                <section class="slide" id="slide-10" data-slide="10">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="badge red-badge">CONTROLE DE DADOS</div>
+                            <h2 class="slide-title">Gestão de Registros</h2>
+                            <p class="subtitle">Controle detalhado e auditoria de cada ocorrência</p>
+
+                            <div class="divider"></div>
+
+                            <ul class="bullet-list">
+                                <li>
+                                    <strong class="highlight-text">Painel de Detalhes:</strong>
+                                    <span>Cada registro armazena o nome do colaborador, o setor, o tipo de EPI ausente, a data/hora e fotos de evidência.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Controle de Status:</strong>
+                                    <span>Os registros podem ser filtrados por status, como "Pendente" ou "Resolvido", facilitando o acompanhamento.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Exportação de Dados:</strong>
+                                    <span>É possível gerar relatórios analíticos em PDF ou Excel para fins de auditoria e reuniões de CIPA.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="slide-visual center-flex">
+                            <div class="db-logs-panel" style="width: 100%; max-width: 480px;">
+                                <div class="db-header">
+                                    <div class="db-dot"></div>
+                                    <span>Sistema de Gestão de Segurança</span>
+                                </div>
+                                <div class="db-table-wrapper">
+                                    <table class="db-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Colaborador</th>
+                                                <th>EPI Ausente</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>João Silva</td>
+                                                <td>Óculos</td>
+                                                <td><span class="table-tag warning">Pendente</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Maria Santos</td>
+                                                <td>Óculos</td>
+                                                <td><span class="table-tag success">Resolvido</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Pedro Costa</td>
+                                                <td>Óculos</td>
+                                                <td><span class="table-tag warning">Pendente</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="padding: 15px; display: flex; justify-content: flex-end; gap: 10px;">
+                                    <button class="action-btn" style="font-size: 0.7rem; padding: 5px 10px;">📄 PDF</button>
+                                    <button class="action-btn" style="font-size: 0.7rem; padding: 5px 10px;">📈 Excel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 11: Viabilidade: Estratégia de Processamento -->
+                <section class="slide" id="slide-11" data-slide="11">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="badge red-badge">VIABILIDADE TÉCNICA</div>
+                            <h2 class="slide-title">Estratégia de Processamento</h2>
+                            <p class="subtitle">Análise Comparativa: Hardware Local vs. Modelo Híbrido</p>
+
+                            <div class="divider"></div>
+
+                            <p class="description" style="margin-bottom: 20px;">
+                                Para treinar o modelo com as 44.000 imagens, analisamos a rota de compra local contra o
+                                uso híbrido em nuvem (Google Colab Pro Plus).
+                            </p>
+
+                            <ul class="bullet-list">
+                                <li>
+                                    <strong class="highlight-text">Opção Local (Alto Custo de Entrada):</strong>
+                                    <span>Compra de GPUs físicas robustas (R$ 8k a R$ 15k). Risco de obsolescência
+                                        tecnológica acelerada.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Opção Híbrida (Recomendada):</strong>
+                                    <span>Investimento zero em novos ativos. Treinamento imediato usando
+                                        supercomputadores via notebooks na nuvem.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="slide-visual center-flex">
+                            <!-- Tabela Comparativa de Decisão -->
+                            <div class="db-logs-panel" style="width: 100%; max-width: 480px;">
+                                <div class="db-header">
+                                    <div class="db-dot"></div>
+                                    <span>Tabela de Decisão de Processamento</span>
+                                </div>
+                                <div class="db-table-wrapper">
+                                    <table class="db-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Critério</th>
+                                                <th>Local (Físico)</th>
+                                                <th>Híbrido (Nuvem)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Investimento Ativos</td>
+                                                <td><span class="table-tag warning">Alto</span></td>
+                                                <td><span class="table-tag success">Zero</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Velocidade Startup</td>
+                                                <td>Demorado (Logística)</td>
+                                                <td style="color: var(--primary-red); font-weight: 700;">Imediato</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Risco Técnico</td>
+                                                <td>Alto (Defasagem)</td>
+                                                <td><span class="table-tag success">Zero</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Manutenção</td>
+                                                <td>Facchini</td>
+                                                <td>Provedor Nuvem</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 12: Estratégia de Câmeras e Investimentos -->
+                <section class="slide" id="slide-12" data-slide="12">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="badge red-badge">INFRAESTRUTURA</div>
+                            <h2 class="slide-title">Olhos Locais, Cérebro em Nuvem</h2>
+                            <p class="subtitle">Investimento estruturado de câmeras e custos previstos</p>
+
+                            <div class="divider"></div>
+
+                            <ul class="bullet-list">
+                                <li>
+                                    <strong class="highlight-text">Cinturão de Visão 360º Redundante:</strong>
+                                    <span>Posicionamento espelhado (Frente e Costa) para anular pontos cegos de EPIs
+                                        complexos.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Estimativa de Investimento por Setor:</strong>
+                                    <span>R$ 2.500,00 a R$ 4.500,00 (único) em infraestrutura IP local de alta
+                                        resolução.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Custo Operacional Mensal (Nuvem):</strong>
+                                    <span>R$ 150,00 a R$ 300,00 em créditos de nuvem e armazenamento Drive 2TB.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="slide-visual center-flex">
+                            <div class="closing-cards"
+                                style="grid-template-columns: 1fr; gap: 15px; width: 100%; max-width: 400px; margin: 0;">
+                                <div class="closing-card" style="padding: 20px;">
+                                    <h3 style="margin-bottom: 5px;">Infraestrutura Local (CapEx)</h3>
+                                    <p
+                                        style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 5px;">
+                                        R$ 2.500 a R$ 4.500 (Único)</p>
+                                    <p style="font-size: 0.8rem; line-height: 1.4;">Kit de 4 câmeras IP Full HD/4K de
+                                        alta sensibilidade e instalação física de visão cruzada.</p>
+                                </div>
+                                <div class="closing-card" style="padding: 20px;">
+                                    <h3 style="margin-bottom: 5px;">Processamento Nuvem (OpEx)</h3>
+                                    <p
+                                        style="font-size: 0.9rem; font-weight: 700; color: var(--primary-red); margin-bottom: 5px;">
+                                        R$ 150 a R$ 300 /mês</p>
+                                    <p style="font-size: 0.8rem; line-height: 1.4;">Manutenção de créditos no Google
+                                        Colab Pro Plus e expansão de armazenamento corporativo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 13: O Propósito (Segurança e Prevenção) -->
+                <section class="slide" id="slide-13" data-slide="13">
+                    <div class="slide-content grid-split">
+                        <div class="slide-text">
+                            <div class="badge red-badge">PROPÓSITO</div>
+                            <h2 class="slide-title">Segurança e Prevenção</h2>
+                            <p class="subtitle">Monitorar e prevenir, nunca punir</p>
+
+                            <div class="divider"></div>
+
+                            <ul class="bullet-list">
+                                <li>
+                                    <strong class="highlight-text">Anotação Silenciosa:</strong>
+                                    <span>Detecção de ausência do EPI gera apenas um registro silencioso no banco de
+                                        dados.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Foco Preventivo:</strong>
+                                    <span>Zero advertências, multas ou infrações aos funcionários. O sistema serve para
+                                        aprimorar processos de proteção.</span>
+                                </li>
+                                <li>
+                                    <strong class="highlight-text">Campanhas Direcionadas:</strong>
+                                    <span>Uso das estatísticas para identificar as áreas com maior índice de
+                                        esquecimento de EPI e focar em treinamentos e conscientização.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="slide-visual center-flex">
+                            <div class="db-logs-panel">
+                                <div class="db-header">
+                                    <div class="db-dot"></div>
+                                    <span>Banco de Dados (Logs de Segurança)</span>
+                                </div>
+                                <div class="db-table-wrapper">
+                                    <table class="db-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Timestamp</th>
+                                                <th>Sensor/Módulo</th>
+                                                <th>Status</th>
+                                                <th>Ação Tomada</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>28/05 14:12:05</td>
+                                                <td>Módulo 2 (Solda)</td>
+                                                <td><span class="table-tag warning">Sem Óculos</span></td>
+                                                <td>Registro no Banco (Estatística)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>28/05 14:15:32</td>
+                                                <td>Módulo 2 (Solda)</td>
+                                                <td><span class="table-tag success">EPI OK</span></td>
+                                                <td>Nenhuma (Conformidade)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>28/05 14:18:10</td>
+                                                <td>Módulo 1 (Montagem)</td>
+                                                <td><span class="table-tag warning">Sem Óculos</span></td>
+                                                <td>Registro no Banco (Estatística)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slide 14: Encerramento -->
+                <section class="slide" id="slide-14" data-slide="14">
+                    <div class="slide-content slide-centered">
+                        <div class="logo-container"
+                            style="margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                            <img src="assets/logo_facchini.png" alt="Facchini Logo"
+                                style="height: 35px; width: auto; object-fit: contain;">
+                            <div class="badge red-badge" style="margin-bottom: 0;">ENCERRAMENTO</div>
+                        </div>
+                        <h1 class="main-title text-center">Tecnologia como Aliada da Vida</h1>
+                        <p class="subtitle text-center">Os desafios provam que cuidar de quem faz a Facchini funcionar é
+                            o melhor caminho</p>
+
+                        <div class="divider center-margin"></div>
+
+                        <div class="closing-cards">
+                            <div class="closing-card">
+                                <h3>Fase de Testes</h3>
+                                <p>Refinamento contínuo da precisão do modelo e melhorias no painel web.</p>
+                            </div>
+                            <div class="closing-card">
+                                <h3>Prevenção Ativa</h3>
+                                <p>Criação de um ambiente seguro e saudável por meio de dados inteligentes.</p>
+                            </div>
+                        </div>
+
+                        <div class="thanks-message">
+                            <h2>Muito obrigado pela atenção!</h2>
+                            <p>Estamos abertos a perguntas e dúvidas.</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- On-Screen Presentation Controls -->
+            <div class="controls-bar">
+                <button class="control-btn" id="prevBtn" title="Slide Anterior (Seta Esquerda)">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M15.41 16.58L10.83 12l4.58-4.59L14 6l-6 6l6 6l1.41-1.42z" />
+                    </svg>
+                </button>
+                <span class="slide-indicator" id="slideIndicator">1 / 14</span>
+                <button class="control-btn" id="nextBtn" title="Próximo Slide (Seta Direita / Espaço)">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M8.59 16.58L13.17 12L8.59 7.41L10 6l6 6l-6 6l-1.41-1.42z" />
+                    </svg>
+                </button>
+                <div class="controls-divider"></div>
+                <button class="action-btn" id="themeToggle" title="Alternar Tema Claro">
+                    <svg viewBox="0 0 24 24" width="20" height="20" id="themeIcon">
+                        <path fill="currentColor"
+                            d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z" />
+                    </svg>
+                </button>
+                <button class="action-btn" id="notesToggle" title="Ver Roteiro / Modo Palestrante">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor"
+                            d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zm-10-7h9v2h-9zm0-3h9v2h-9zm0 6h9v2h-9zM5 7h4v4H5zm0 6h4v4H5z" />
+                    </svg>
+                    <span>Roteiro</span>
+                </button>
+                <button class="action-btn" id="summaryToggle" title="Menu de Navegação Rápida">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor"
+                            d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" />
+                    </svg>
+                    <span>Slides</span>
+                </button>
+            </div>
+
+            <!-- Floating Summary Panel (Quick Navigation) -->
+            <div id="summaryPanel" class="summary-panel"
+                style="display: none; position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%); background: var(--glass-bg); border: 1px solid var(--glass-border); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 16px; padding: 15px; box-shadow: var(--shadow-main); width: 320px; z-index: 200; max-height: 380px; overflow-y: auto;">
+                <h4
+                    style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+                    Navegação Rápida</h4>
+                <ul class="summary-list" style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                    <li onclick="jumpToSlide(1)" class="summary-item" data-target="1">1. Introdução</li>
+                    <li onclick="jumpToSlide(2)" class="summary-item" data-target="2">2. Cérebro (YOLOv8)</li>
+                    <li onclick="jumpToSlide(3)" class="summary-item" data-target="3">3. Força-Tarefa de Dados</li>
+                    <li onclick="jumpToSlide(4)" class="summary-item" data-target="4">4. Processo de Labelização</li>
+                    <li onclick="jumpToSlide(5)" class="summary-item" data-target="5">5. Estratégia de Treino</li>
+                    <li onclick="jumpToSlide(6)" class="summary-item" data-target="6">6. Desempenho de Detecção</li>
+                    <li onclick="jumpToSlide(7)" class="summary-item" data-target="7">7. Entendendo as Métricas</li>
+                    <li onclick="jumpToSlide(8)" class="summary-item" data-target="8">8. O Sistema em Ação</li>
+                    <li onclick="jumpToSlide(9)" class="summary-item" data-target="9">9. Dashboard Analítico</li>
+                    <li onclick="jumpToSlide(10)" class="summary-item" data-target="10">10. Gestão de Registros</li>
+                    <li onclick="jumpToSlide(11)" class="summary-item" data-target="11">11. Viabilidade de Treino</li>
+                    <li onclick="jumpToSlide(12)" class="summary-item" data-target="12">12. Câmeras & Custos</li>
+                    <li onclick="jumpToSlide(13)" class="summary-item" data-target="13">13. Propósito de Segurança</li>
+                    <li onclick="jumpToSlide(14)" class="summary-item" data-target="14">14. Encerramento</li>
+                </ul>
+            </div>
+        </main>
+
+    <!-- Speaker Notes Panel (Right Side Panel) -->
+    <aside class="speaker-notes-panel" id="speakerNotesPanel">
+        <div class="notes-header">
+            <h3>🗣️ Roteiro do Apresentador</h3>
+            <button class="close-notes" id="closeNotesBtn" title="Fechar Roteiro">×</button>
+        </div>
+        <div class="notes-content">
+            <!-- Slide 1 Notes -->
+            <div class="note-item active" id="note-1">
+                <div class="note-badge">Slide 1: Introdução</div>
+                <p class="note-text">
+                    "Olá a todos. Bom dia / Boa tarde. Gostaria de apresentar a vocês o nosso projeto: um protótipo de
+                    um sistema web focado inteiramente na segurança dos nossos colaboradores. O nosso objetivo principal
+                    com esse sistema é utilizar as câmeras da empresa para reconhecer, de forma automática, se um
+                    funcionário está utilizando ou não os óculos de proteção, o nosso EPI."
+                </p>
+            </div>
+
+            <!-- Slide 2 Notes -->
+            <div class="note-item" id="note-2">
+                <div class="note-badge">Slide 2: Contextualização</div>
+                <p class="note-text">
+                    "Antes de entrarmos nos detalhes da tecnologia, precisamos entender a raiz desse projeto: a
+                    segurança de quem faz a Facchini funcionar todos os dias. O chão de fábrica possui desafios reais
+                    relacionados a acidentes e riscos visuais na área de solda e montagem. Por isso, nosso objetivo
+                    principal com essa IA é reduzir de forma drástica o risco de acidentes, ajudando a criar um ambiente
+                    de trabalho cada vez mais seguro. Vale ressaltar que este projeto tem caráter de protótipo — uma
+                    prova de conceito (PoC) desenvolvida por nós para avaliar como a inteligência artificial se comporta
+                    com as câmeras da empresa, pavimentando o caminho para futuras aplicações integradas."
+                </p>
+            </div>
+
+            <!-- Slide 3 Notes -->
+            <div class="note-item" id="note-3">
+                <div class="note-badge">Slide 3: Força-Tarefa</div>
+                <p class="note-text">
+                    "Mas para treinar uma Inteligência Artificial desse porte, o caminho foi desafiador e exigiu muita
+                    agilidade do nosso time. Como fomos integrados ao projeto em cima da hora, tivemos que correr contra
+                    o tempo. Inicialmente, passamos por aquele período natural de adaptação, onde nem todos do grupo
+                    tinham computadores prontos ou ferramentas específicas instaladas, como o MySQL Workbench, e as
+                    câmeras do Módulo 1 ainda não estavam operacionais. Para resolver isso rapidamente e não travar o
+                    projeto, abrimos chamados, conseguimos webcams provisórias e começamos a gravar o que precisávamos.
+                    Foi aí que a turma inteira se uniu em uma verdadeira força-tarefa: usando a plataforma Roboflow, nós
+                    aproveitamos uma janela de teste gratuito do plano Pro e, em apenas 15 dias, selecionamos e
+                    catalogamos manualmente mais de 50 mil fotos! Fizemos isso correndo contra o tempo para garantir um
+                    volume gigante de imagens com variedades, evitando falhas e garantindo que a IA fosse precisa."
+                </p>
+            </div>
+
+            <!-- Slide 4 Notes -->
+            <div class="note-item" id="note-4">
+                <div class="note-badge">Slide 4: Labelização</div>
+                <p class="note-text">
+                    "Com o nosso banco de dados volumoso em mãos, precisamos estruturar os dados para a inteligência
+                    artificial. Esse processo é chamado de Labelização ou rotulagem, onde informamos à IA exatamente
+                    onde os objetos estão na imagem. Utilizamos as chamadas 'Bounding Boxes', caixas delimitadoras que
+                    cercam com precisão as classes estabelecidas no nosso projeto: colaboradores com óculos de proteção
+                    e colaboradores sem óculos. Além disso, aplicamos técnicas de 'Data Augmentation' ou aumento de
+                    dados. Essa técnica gera novas variações das fotos reais rotacionando, variando brilho e gerando
+                    contrastes parecidos com os flashes de solda. Isso prepara o modelo de IA para ser resiliente a
+                    qualquer alteração de iluminação ou ângulo dentro da fábrica real."
+                </p>
+            </div>
+
+            <!-- Slide 5 Notes -->
+            <div class="note-item" id="note-5">
+                <div class="note-badge">Slide 5: Processamento</div>
+                <p class="note-text">
+                    "Depois de criar e rotular a base de dados, veio o desafio do processamento. Como o 'cérebro' do
+                    nosso protótipo é um arquivo robusto e muito pesado, tentar fazer o treinamento de forma local nos
+                    computadores disponíveis se mostrou inviável. O processo demoraria semanas ou os equipamentos
+                    travavam pelo esforço excessivo. A empresa chegou a nos disponibilizar uma Workstation, mas por ser
+                    um modelo mais antigo, de 2012 com placa AMD, ela acabava direcionando todo o esforço para o
+                    processador (CPU), gerando o mesmo gargalo. Percebendo que o tempo estava curto para entregar o
+                    protótipo, o grupo tomou uma decisão estratégica: nos unimos e investimos em uma assinatura do
+                    Google Colab Pro. Com isso, levamos o treinamento para as nuvens, utilizando servidores de alta
+                    performance. Essa solução agilizou drasticamente o processo, nos permitindo entregar um modelo muito
+                    mais preciso, efetivo e dentro do prazo."
+                </p>
+            </div>
+
+            <!-- Slide 6 Notes -->
+            <div class="note-item" id="note-6">
+                <div class="note-badge">Slide 6: Desempenho</div>
+                <p class="note-text">
+                    "Superados os desafios de processamento e dados, conseguimos finalizar o treinamento do YOLOv8 e
+                    consolidar métricas incríveis de desempenho. O nosso melhor modelo atingiu um mAP50-95 de 0.3102. A
+                    Precisão geral de detecção foi de 0.7759, o que significa que o sistema é muito preciso ao indicar o
+                    uso de EPI, e o Recall de 0.7349, mostrando a nossa alta sensibilidade em encontrar as infrações
+                    silenciosas sem deixar escapar quase nada. No gráfico de evolução ao lado, vemos a curva de
+                    aprendizado subindo consistentemente a cada época de treino, mostrando a solidez da nossa
+                    Inteligência Artificial."
+                </p>
+            </div>
+
+            <!-- Slide 7 Notes -->
+            <div class="note-item" id="note-7">
+                <div class="note-badge">Slide 7: IA & Futebol</div>
+                <p class="note-text">
+                    "Para que todos consigam entender a beleza e a lógica matemática desses dados, vamos fazer uma
+                    analogia bem simples e divertida usando um jogo de futebol. Imaginem o nosso modelo de IA como um
+                    atacante em campo. A Precisão é a pontaria de chute desse jogador: de cada 10 chutes dele, quase 8
+                    vão direto para o gol sem desviar. O Recall é a sua presença de área e posicionamento: de todos os
+                    cruzamentos difíceis que chegam na grande área, em quantos ele consegue chegar para tentar fazer o
+                    gol? E o mAP50-95 é a nota geral desse craque na partida, considerando jogadas difíceis e fáceis. O
+                    gráfico de aprendizado é a pré-temporada do time: no começo, todos estão desorganizados e errando
+                    passes (perda alta), mas conforme treinam (épocas), o time se entrosa e atinge a performance máxima
+                    estabilizada."
+                </p>
+            </div>
+
+            <!-- Slide 8 Notes -->
+            <div class="note-item" id="note-8">
+                <div class="note-badge">Slide 8: Demonstração</div>
+                <p class="note-text">
+                    "E agora, o momento mais aguardado da apresentação: o nosso sistema em pleno funcionamento. Nesta
+                    tela, podemos mostrar um vídeo de demonstração prática capturado em tempo real no chão de fábrica e
+                    também uma galeria com capturas de tela do modelo fazendo as detecções. Vejam como o YOLOv8 desenha
+                    de forma instantânea, em menos de 30 milissegundos por quadro, caixas verdes em colaboradores que
+                    estão utilizando óculos corretamente, e caixas vermelhas de alerta no exato segundo em que alguém é
+                    visto sem o óculos de proteção. Isso demonstra a robustez do 'cérebro' do sistema que treinamos no
+                    Google Colab Pro."
+                </p>
+            </div>
+
+            <!-- Slide 9 Notes -->
+            <div class="note-item" id="note-9">
+                <div class="note-badge">Slide 9: Dashboard Analítico</div>
+                <p class="note-text">
+                    "Além da detecção em tempo real, o sistema conta com um Dashboard Analítico completo para a gestão. 
+                    Aqui, os supervisores podem visualizar métricas de desempenho diárias e semanais, identificando tendências 
+                    comparativas. O sistema também gera análises automáticas por setor, revelando onde o volume de registros 
+                    é maior e quais tipos de EPIs são mais frequentemente esquecidos. Temos ainda um calendário interativo 
+                    que ajuda a identificar padrões temporais, permitindo uma atuação preventiva muito mais inteligente."
+                </p>
+            </div>
+
+            <!-- Slide 10 Notes -->
+            <div class="note-item" id="note-10">
+                <div class="note-badge">Slide 10: Gestão de Registros</div>
+                <p class="note-text">
+                    "Toda essa inteligência é suportada por uma Gestão de Registros de Segurança robusta. Cada ocorrência 
+                    é documentada com nome do colaborador, setor, tipo de EPI ausente e o registro visual da foto de evidência. 
+                    O painel permite um controle de status, onde pendências podem ser marcadas como 'Resolvido' após o 
+                    orientação técnica. E para fins de auditoria ou reuniões de CIPA, o sistema possibilita a exportação 
+                    de relatórios analíticos completos em PDF ou Excel, transformando dados brutos em decisões gerenciais."
+                </p>
+            </div>
+
+            <!-- Slide 11 Notes -->
+            <div class="note-item" id="note-11">
+                <div class="note-badge">Slide 11: Processamento</div>
+                <p class="note-text">
+                    "Olhando para o futuro e para a continuidade do projeto com a base de 44 mil imagens, analisamos as
+                    opções de viabilidade de processamento. A compra de hardware local de alta performance exigiria um
+                    custo de R$ 8 mil a R$ 15 mil, além de sofrer com rápida obsolescência tecnológica. Portanto,
+                    recomendamos a adoção do modelo híbrido: investimento zero em novos computadores e processamento em
+                    nuvem robusto, o que nos garante agilidade imediata e máquinas sempre atualizadas."
+                </p>
+            </div>
+
+            <!-- Slide 12 Notes -->
+            <div class="note-item" id="note-12">
+                <div class="note-badge">Slide 12: Infraestrutura</div>
+                <p class="note-text">
+                    "Para a aplicação prática e confiabilidade na fábrica, estimamos os custos de infraestrutura local
+                    de câmeras. Um kit com 4 câmeras IP de alta resolução mais cabeamento custa em média de R$ 2.500 a
+                    R$ 4.500 por setor, permitindo um cinturão de visão espelhada (frente e costa) para eliminar pontos
+                    cegos. O custo operacional de nuvem recorrente fica na faixa de R$ 150 a R$ 300 mensais para manter
+                    créditos e armazenamento."
+                </p>
+            </div>
+
+            <!-- Slide 13 Notes -->
+            <div class="note-item" id="note-13">
+                <div class="note-badge">Slide 13: Propósito</div>
+                <p class="note-text">
+                    "E com todo esse esforço superado, chegamos ao funcionamento do nosso protótipo. Como ele funciona
+                    no dia a dia? No momento em que a câmera filmar algum colaborador sem os óculos de EPI, o sistema
+                    vai apenas anotar o ocorrido em nosso banco de dados. Quero reforçar e deixar muito claro que o
+                    objetivo deste projeto não é gerar infrações, advertências or punições para os funcionários. É
+                    estritamente para anotação e monitoramento. O objetivo é fornecer dados para que a equipe de
+                    segurança do trabalho entenda onde estão os riscos e possa direcionar campanhas de conscientização e
+                    treinamentos preventivos. O nosso foco é a segurança e o bem-estar de quem está no chão de fábrica."
+                </p>
+            </div>
+
+            <!-- Slide 14 Notes -->
+            <div class="note-item" id="note-14">
+                <div class="note-badge">Slide 14: Conclusão</div>
+                <p class="note-text">
+                    "Acreditamos que a tecnologia deve ser uma aliada da vida e da prevenção de acidentes. Como este é
+                    um protótipo, estamos em fase de testes e aprimoramentos, mas os desafios que superamos para
+                    construí-lo só provam o quanto essa ferramenta é viável e poderosa para cuidar de quem faz a
+                    Facchini funcionar. Muito obrigado pela atenção de todos. Estamos abertos a dúvidas!"
+                </p>
+            </div>
+        </div>
+        <div class="notes-footer">
+            <span>Dica: Use as setas ← e → do teclado para navegar.</span>
+        </div>
+    </aside>
+    </div>
+
+    <!-- Image Zoom Modal with Gallery Navigation -->
+    <div id="imageZoomModal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(11,15,25,0.95); z-index: 1000; align-items: center; justify-content: center; user-select: none;">
+        <!-- Modal Backdrop click triggers close -->
+        <div onclick="closeZoomModal()"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1001;"></div>
+
+        <!-- Controls & Image Container -->
+        <div
+            style="position: relative; z-index: 1002; display: flex; flex-direction: column; align-items: center; gap: 15px; max-width: 90%; max-height: 90%;">
+            <img id="zoomModalImg"
+                style="max-width: 100%; max-height: 80vh; border-radius: 12px; border: 2px solid rgba(255,255,255,0.08); box-shadow: 0 20px 50px rgba(0,0,0,0.6); object-fit: contain;">
+
+            <div id="zoomModalCaption"
+                style="color: #FFFFFF; font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.5); background: rgba(0,0,0,0.6); padding: 6px 16px; border-radius: 20px;">
+            </div>
+
+            <!-- Navigation Controls -->
+            <div style="display: flex; align-items: center; gap: 30px; margin-top: 5px;">
+                <button onclick="navigateModalGallery(-1)"
+                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; font-size: 1.2rem;"
+                    onmouseover="this.style.background='var(--primary-red)'; this.style.borderColor='var(--primary-red)'"
+                    onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.1)'">
+                    &larr;
+                </button>
+                <span id="zoomModalCounter"
+                    style="color: var(--text-muted); font-size: 0.85rem; font-family: monospace; font-weight: 700; background: rgba(255,255,255,0.02); padding: 4px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">1
+                    / 25</span>
+                <button onclick="navigateModalGallery(1)"
+                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; font-size: 1.2rem;"
+                    onmouseover="this.style.background='var(--primary-red)'; this.style.borderColor='var(--primary-red)'"
+                    onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.1)'">
+                    &rarr;
+                </button>
+            </div>
+        </div>
+
+        <!-- Close Button -->
+        <span onclick="closeZoomModal()"
+            style="position: absolute; top: 30px; right: 40px; color: rgba(255,255,255,0.6); font-size: 2.5rem; font-weight: 300; cursor: pointer; z-index: 1003; transition: 0.2s; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"
+            onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">&times;</span>
+    </div>
+
+    <!-- Script file -->
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{
+  "video_entrada": "/content/video_gravado.mp4",
+  "video_saida": "/content/demo_detector_oculos/videos_processados/demo_oculos_final_20260529_172040.mp4",
+  "csv_evidencias": "/content/demo_detector_oculos/relatorios/relatorio_demo_video_20260529_172040.csv",
+  "json_resumo": "/content/demo_detector_oculos/relatorios/resumo_demo_video_20260529_172040.json",
+  "fps": 30.0,
+  "width": 1920,
+  "height": 1080,
+  "frames_lidos": 13622,
+  "frames_escritos": 13622,
+  "frames_processados_yolo": 13622,
+  "tempo_total_segundos": 1681.15,
+  "velocidade_frames_lidos_por_segundo": 8.1,
+  "batch_size": 16,
+  "img_size": 800,
+  "detect_every_n": 1,
+  "conf_alerta": 0.65,
+  "evidencias": 25,
+  "roi_norm": {
+    "x1": 0.1,
+    "y1": 0.08,
+    "x2": 0.9,
+    "y2": 0.92
+  },
+  "roi_px": [
+    192,
+    86,
+    1728,
+    993
+  ]
+}
